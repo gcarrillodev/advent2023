@@ -15,14 +15,15 @@ int main(int argc, char** argv){
 
 	do{
 		flag[0] = 0;
-		flag[0] = 0;
+		flag[1] = 0;
 		items = fscanf(stdin, "%s\n", buffer);
 		if (items>0){
-			int length = strlen[buffer];
+			int length = strlen(buffer);
 			for(int x = 0; x<length; x++){
 				if(flag[0]==0 && buffer[x]>='0' && buffer[x]<='9'){
 					ns[0] = buffer[x];
 					if(flag[1] == 1) break;
+					flag[0] = 1;
 				}
 
 				if(flag[1] == 0 && buffer[length - 1 - x] >= '0' && buffer[length - 1 - x] <='9'){
@@ -31,6 +32,7 @@ int main(int argc, char** argv){
 					flag[1] = 1;
 				}
 			}
+			//printf("%s -> %s\n", buffer, ns);
 			sum += atoi(ns);
 		       		
 		}
