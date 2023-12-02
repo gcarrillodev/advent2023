@@ -11,20 +11,24 @@ int main(int argc, char** argv){
 	char buffer[MAXBUFFER] = "";
 	int sum = 0;
 	char ns[3] = "";
-	
+	short int flag[2];
+
 	do{
+		flag[0] = 0;
+		flag[0] = 0;
 		items = fscanf(stdin, "%s\n", buffer);
 		if (items>0){
-			for(int x = 0; x<strlen(buffer); x++){
-				if(buffer[x] >= '0' && buffer[x]<='9'){
+			int length = strlen[buffer];
+			for(int x = 0; x<length; x++){
+				if(flag[0]==0 && buffer[x]>='0' && buffer[x]<='9'){
 					ns[0] = buffer[x];
-					break;
+					if(flag[1] == 1) break;
 				}
-			}
-			for(int x = strlen(buffer); x>=0; x--){
-				if(buffer[x] >= '0' && buffer[x]<='9'){
-					ns[1] = buffer[x];
-					break;
+
+				if(flag[1] == 0 && buffer[length - 1 - x] >= '0' && buffer[length - 1 - x] <='9'){
+					ns[1] = buffer[length - 1 - x];
+					if(flag[0] == 1) break;
+					flag[1] = 1;
 				}
 			}
 			sum += atoi(ns);
